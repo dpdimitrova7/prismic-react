@@ -3,16 +3,16 @@ import { RichText } from 'prismic-reactjs';
 import './leader.styles.scss';
 
 const Leader = ({ leader }) => {
-  //const [viewed, setViewLeader] = useState(false);
- const description = RichText.asText(leader.description);
-//I will have state that will change on click
-
-
   return(
     <div className='wrapper-grid'>
-        <p className="quote">{leader.quote}</p>
-        <img alt='cover' style={{maxWidth: '250px'}} src={leader.exemplar_image.url}/>
-        <p>{description}</p>
+      <div className='align-exemplar-quote-image'>
+        <div className='wrap-exemplar-quote'>
+          <h3 className='exemplar'>{leader.exemplar}</h3>
+          <p className='quote'>{leader.quote}</p>
+        </div>    
+        <img className='img' alt='cover' src={leader.exemplar_image.url}/>
+      </div>
+      <p style={{fontWeight: `400`}}>{RichText.render(leader.description)}</p>
     </div>
     )
 }
